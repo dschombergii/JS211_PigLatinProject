@@ -17,8 +17,8 @@ const pigLatin = (str) => {
   const vowels = ["a", "e", "i", "o", "u"];
   let vowelIndex = 0;
 
-  for (let i=0; i<strArray.length; i++) {
-    str = strArray[i]
+  for (let word in strArray) {
+    str = strArray[word]
     if (vowels.includes(str[0])) {
       translatedArray.push(str + "yay");
     } else{

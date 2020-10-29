@@ -11,11 +11,32 @@ const rl = readline.createInterface({
 });
 
 
-const pigLatin = (word) => {
+const pigLatin = (str) => {
+  let strArray = str.toLowerCase().trim().split(" ")
+  let translatedArray = []
+  const vowels = ["a", "e", "i", "o", "u"];
+  let vowelIndex = 0;
 
-  // Your code here
-
+  for (let i=0; i<strArray.length; i++) {
+    str = strArray[i]
+    if (vowels.includes(str[0])) {
+      translatedArray.push(str + "yay");
+    } else{
+      for (let char of str) {
+        if (vowels.includes(char)) {
+          vowelIndex = str.indexOf(char);
+          break;
+        }
+      }
+      translatedArray.push(str.slice(vowelIndex) + str.slice(0, vowelIndex) + "ay");
+    }
+    
+  }
+  console.log(translatedArray.join(" "))
+  return translatedArray.join(" ")
 }
+
+
 
 // the first function called in the program to get an input from the user
 // to run the function use the command: node main.js
@@ -48,6 +69,10 @@ if (typeof describe === 'function') {
     it('should lowercase and trim word before translation', () => {
       assert.equal(pigLatin('HeLlO '), 'ellohay');
       assert.equal(pigLatin(' RoCkEt'), 'ocketray');
+    });
+    it('should lowercase and translate a sentence with multiple words', () => {
+      assert.equal(pigLatin('Here have some chicken'), 'erehay avehay omesay ickenchay');
+      assert.equal(pigLatin(' You should Eat a chickEn pot Pie todaY'), 'ouyay ouldshay eatyay ayay ickenchay otpay iepay odaytay');
     });
   });
 } else {

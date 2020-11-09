@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,700");
+@import url("https://fonts.googleapis.com/css?family=Merriweather:400,700");
+
+body {
+    height: 100vh;
+    text-align: center;
+    background-color: pink;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+}
+
+h1, .translate {
+    width: 50%;
+    font-size: 20px;
+    z-index: 2;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+button {
+    background: transparent;
+    border: 2px solid black;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    outline: none;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+#translate-input {
+    initial-letter-align: start;
+    height: 200px;
+    width: 500px;
+    border: 2px solid black;
+    font-size: 20px;
+    background-color: transparent;
+    font-family: Arial, Helvetica, sans-serif;
+    outline: none;
+}
+
+#rectangle {
+    margin: 30vh auto auto auto;
+    /* background-color: #ff5a5a; */
+    width: 100px;
+    height: 200px;
+    position: relative;
+  }
+
+
+  #speechBubble {
+    position: absolute;
+    transform-origin: 0% 100%;
+    text-align: left;
+    background-color: black;
+    color: pink;
+    font-size: 30px;
+    border-radius: 10px;
+    width: 500px;
+    height: 300px;
+    padding: 10px;
+    left: -510px;
+    top: -160px;
+    transform: scale(0);
+    animation-fill-mode: forwards;
+  }
+
+  #speechBubble::before {
+    content: "";
+    display: block;
+    width: 0;
+    position: absolute;
+    bottom: -100px;
+    left: 400px;
+    border-style: solid;
+    border-width: 60px;
+    border-color: black transparent transparent black;
+    transform: rotate(75deg);
+  }
+
+  @keyframes expand-bounce {
+    0% {
+      transform: scale(0);
+    }
+    50% {
+      transform: scale(1.25);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  /* Here the scale simply goes from 1 back to 0 */
+  @keyframes shrink {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(0);
+    }
+  

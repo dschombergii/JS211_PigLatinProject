@@ -7,7 +7,6 @@ body {
     background-color: pink;
     color: black;
     font-family: Arial, Helvetica, sans-serif;
-    overflow: hidden;
 }
 
 h1, .translate {

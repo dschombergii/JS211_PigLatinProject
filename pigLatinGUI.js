@@ -2,34 +2,35 @@ const pigLatin = () => {
   bubbleAppear()
   let str = document.getElementById('translate-input').value
   console.log(str)
-  let strArray = str.toLowerCase().trim().split(" ");
-  let translatedArray = [];
-  const vowels = ["a", "e", "i", "o", "u"];
-  let vowelIndex = 0;
+  let strArray = str.toLowerCase().trim().split(" ")
+  let translatedArray = []
+  const vowels = ["a", "e", "i", "o", "u"]
+  let vowelIndex = 0
 
   for (let word in strArray) {
-    str = strArray[word];
+    str = strArray[word]
     if (vowels.includes(str[0])) {
-      translatedArray.push(str + "yay");
+      translatedArray.push(str + "yay")
     } else {
       for (let char of str) {
         if (vowels.includes(char)) {
-          vowelIndex = str.indexOf(char);
+          vowelIndex = str.indexOf(char)
           break;
         }
       }
       translatedArray.push(
         str.slice(vowelIndex) + str.slice(0, vowelIndex) + "ay"
-      );
+      )
     }
   }
-  console.log(translatedArray.join(" "));
+  console.log(translatedArray.join(" "))
   document.getElementById('speechBubble').innerHTML = translatedArray.join(" ")
-  return translatedArray.join(" ");
-};
+  return translatedArray.join(" ")
+}
 
-// let rectangle = $("#Rectangle");
-let speechBubble = $("#speechBubble");
+
+
+let speechBubble = $("#speechBubble")
 
 
 const bubbleAppear = () => {
